@@ -6,12 +6,16 @@
   <title>台語好好玩</title>
   <style>
     :root {
-      --sky: #dff4ff;
-      --blue: #1f5f8b;
-      --teal: #2a9d8f;
-      --gold: #f4a261;
-      --cream: #fffaf0;
-      --text: #16324f;
+      --bg-1: #07111f;
+      --bg-2: #10253d;
+      --panel: rgba(12, 25, 44, 0.88);
+      --line: rgba(133, 196, 255, 0.24);
+      --title: #ffd166;
+      --mint: #7ce0d3;
+      --paper: #f4f7fb;
+      --soft: #b8c7da;
+      --accent: #ff8fab;
+      --accent-2: #7db7ff;
     }
 
     * {
@@ -22,68 +26,359 @@
       margin: 0;
       min-height: 100vh;
       font-family: "Microsoft JhengHei", sans-serif;
-      color: var(--text);
+      color: var(--paper);
       background:
-        radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), transparent 36%),
-        linear-gradient(135deg, var(--sky), #ffffff 45%, #fef3c7);
-      display: grid;
-      place-items: center;
+        radial-gradient(circle at top, rgba(125, 183, 255, 0.18), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(255, 209, 102, 0.14), transparent 28%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2) 48%, #071829);
       padding: 24px;
     }
 
+    .shell {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+    }
+
     .card {
-      width: min(760px, 100%);
-      background: rgba(255, 250, 240, 0.92);
-      border: 3px solid rgba(31, 95, 139, 0.18);
-      border-radius: 28px;
-      padding: 48px 32px;
-      text-align: center;
-      box-shadow: 0 22px 60px rgba(31, 95, 139, 0.16);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      padding: 28px;
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
+      backdrop-filter: blur(10px);
     }
 
     .tag {
       display: inline-block;
       padding: 8px 16px;
       border-radius: 999px;
-      background: var(--teal);
-      color: #fff;
+      background: rgba(124, 224, 211, 0.14);
+      border: 1px solid rgba(124, 224, 211, 0.32);
+      color: var(--mint);
       font-size: 0.95rem;
       letter-spacing: 0.08em;
     }
 
+    .hero {
+      display: grid;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .banner {
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at top left, rgba(255, 209, 102, 0.14), transparent 25%),
+        linear-gradient(180deg, #163154, #0b1730 60%, #09101d);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .moon,
+    .star {
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .moon {
+      top: 26px;
+      right: 48px;
+      width: 74px;
+      height: 74px;
+      background: #ffe7a3;
+      box-shadow: 0 0 36px rgba(255, 231, 163, 0.45);
+    }
+
+    .moon::after {
+      content: "";
+      position: absolute;
+      inset: 8px 0 8px 16px;
+      background: #163154;
+      border-radius: 50%;
+    }
+
+    .star {
+      width: 6px;
+      height: 6px;
+      background: #fff2c4;
+      box-shadow: 0 0 10px rgba(255, 242, 196, 0.7);
+    }
+
+    .star.s1 { top: 54px; left: 80px; }
+    .star.s2 { top: 82px; left: 220px; }
+    .star.s3 { top: 48px; left: 380px; }
+    .star.s4 { top: 112px; right: 180px; }
+    .star.s5 { top: 138px; right: 90px; }
+
+    .ground {
+      position: absolute;
+      left: -3%;
+      right: -3%;
+      bottom: -30px;
+      height: 150px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #18464f, #102a32);
+    }
+
+    .kids {
+      position: absolute;
+      inset: auto 28px 36px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 18px;
+    }
+
+    .kid {
+      position: relative;
+      width: 122px;
+      height: 190px;
+    }
+
+    .head {
+      position: absolute;
+      top: 18px;
+      left: 36px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #ffd4b8;
+      z-index: 2;
+    }
+
+    .hair {
+      position: absolute;
+      top: 10px;
+      left: 30px;
+      width: 62px;
+      height: 34px;
+      border-radius: 30px 30px 14px 14px;
+      background: #25140c;
+      z-index: 3;
+    }
+
+    .body {
+      position: absolute;
+      top: 62px;
+      left: 28px;
+      width: 68px;
+      height: 74px;
+      border-radius: 20px;
+      z-index: 1;
+    }
+
+    .arm,
+    .leg {
+      position: absolute;
+      background: #ffd4b8;
+      border-radius: 999px;
+      transform-origin: top center;
+    }
+
+    .arm {
+      width: 16px;
+      height: 62px;
+      top: 74px;
+      z-index: 0;
+    }
+
+    .leg {
+      width: 18px;
+      height: 66px;
+      top: 128px;
+      z-index: 0;
+    }
+
+    .toy {
+      position: absolute;
+      z-index: 4;
+    }
+
+    .k1 .body { background: #ff8fab; }
+    .k1 .arm.left { left: 18px; transform: rotate(28deg); }
+    .k1 .arm.right { right: 20px; transform: rotate(-38deg); }
+    .k1 .leg.left { left: 40px; transform: rotate(10deg); }
+    .k1 .leg.right { right: 34px; transform: rotate(-10deg); }
+    .k1 .toy {
+      top: 90px;
+      left: 82px;
+      width: 52px;
+      height: 52px;
+      border: 6px solid #ffd166;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 6px rgba(255, 255, 255, 0.08);
+    }
+    .k1 .toy::after {
+      content: "";
+      position: absolute;
+      left: 21px;
+      top: 48px;
+      width: 6px;
+      height: 44px;
+      background: #ffd166;
+      border-radius: 6px;
+    }
+
+    .k2 .body { background: #7db7ff; }
+    .k2 .arm.left { left: 20px; transform: rotate(12deg); }
+    .k2 .arm.right { right: 16px; transform: rotate(-14deg); }
+    .k2 .leg.left { left: 38px; transform: rotate(4deg); }
+    .k2 .leg.right { right: 38px; transform: rotate(-4deg); }
+    .k2 .toy {
+      top: 104px;
+      left: 10px;
+      width: 108px;
+      height: 10px;
+      background: linear-gradient(90deg, #ffd166, #7ce0d3, #ff8fab);
+      border-radius: 999px;
+      transform: rotate(-12deg);
+    }
+    .k2 .toy::before,
+    .k2 .toy::after {
+      content: "";
+      position: absolute;
+      top: -14px;
+      width: 18px;
+      height: 38px;
+      border: 5px solid #ffd166;
+      border-radius: 50%;
+    }
+    .k2 .toy::before { left: -2px; }
+    .k2 .toy::after { right: -2px; }
+
+    .k3 .body { background: #7ce0d3; }
+    .k3 .arm.left { left: 18px; transform: rotate(32deg); }
+    .k3 .arm.right { right: 20px; transform: rotate(-26deg); }
+    .k3 .leg.left { left: 42px; transform: rotate(6deg); }
+    .k3 .leg.right { right: 34px; transform: rotate(-8deg); }
+    .k3 .toy {
+      top: 94px;
+      left: 88px;
+      width: 20px;
+      height: 20px;
+      background: #ffd166;
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 6px rgba(255, 209, 102, 0.2),
+        -18px 30px 0 -5px #ffd166,
+        -10px 54px 0 -8px #ffd166;
+    }
+    .k3 .toy::after {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 14px;
+      width: 40px;
+      height: 4px;
+      background: #ffe5a6;
+      transform: rotate(60deg);
+      border-radius: 999px;
+    }
+
     h1 {
-      margin: 20px 0 12px;
-      font-size: clamp(2.2rem, 6vw, 4.2rem);
-      color: var(--blue);
+      margin: 18px 0 12px;
+      font-size: clamp(2.4rem, 6vw, 4.6rem);
+      line-height: 1.05;
+      color: var(--title);
     }
 
     p {
-      margin: 10px 0;
-      font-size: 1.15rem;
-      line-height: 1.8;
+      margin: 8px 0;
+      font-size: 1.12rem;
+      line-height: 1.9;
+      color: var(--paper);
+    }
+
+    .lead {
+      color: #d5e6ff;
     }
 
     .credit {
-      margin-top: 24px;
+      margin-top: 20px;
       font-weight: 700;
-      color: #7c3f00;
+      font-size: 1.24rem;
+      color: var(--mint);
     }
 
     .footer {
-      margin-top: 28px;
-      font-size: 0.98rem;
-      color: #4b5563;
+      margin-top: 18px;
+      color: var(--soft);
+      font-size: 1rem;
+    }
+
+    @media (max-width: 720px) {
+      .card {
+        padding: 18px;
+      }
+
+      .banner {
+        min-height: 460px;
+      }
+
+      .kids {
+        flex-direction: column;
+        align-items: center;
+        inset: auto 0 24px 0;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="card">
-    <div class="tag">歡迎來學台語</div>
-    <h1>台語好好玩</h1>
-    <p>用趣味的方式親近台語，讓聽、講、讀、寫都變得更自然。</p>
-    <p>這個首頁將作為教學與成果展示的起點，未來可以再加入教材、錄音、活動照片與學生作品。</p>
-    <p class="credit">大社國小 曹月秀</p>
-    <p class="footer">GitHub Pages 首頁</p>
-  </main>
+  <div class="shell">
+    <main class="card hero">
+      <section class="banner" aria-label="一群小朋友玩古早玩具的童趣插畫">
+        <div class="moon"></div>
+        <div class="star s1"></div>
+        <div class="star s2"></div>
+        <div class="star s3"></div>
+        <div class="star s4"></div>
+        <div class="star s5"></div>
+        <div class="ground"></div>
+        <div class="kids">
+          <div class="kid k1">
+            <div class="hair"></div>
+            <div class="head"></div>
+            <div class="body"></div>
+            <div class="arm left"></div>
+            <div class="arm right"></div>
+            <div class="leg left"></div>
+            <div class="leg right"></div>
+            <div class="toy" aria-hidden="true"></div>
+          </div>
+          <div class="kid k2">
+            <div class="hair"></div>
+            <div class="head"></div>
+            <div class="body"></div>
+            <div class="arm left"></div>
+            <div class="arm right"></div>
+            <div class="leg left"></div>
+            <div class="leg right"></div>
+            <div class="toy" aria-hidden="true"></div>
+          </div>
+          <div class="kid k3">
+            <div class="hair"></div>
+            <div class="head"></div>
+            <div class="body"></div>
+            <div class="arm left"></div>
+            <div class="arm right"></div>
+            <div class="leg left"></div>
+            <div class="leg right"></div>
+            <div class="toy" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="tag">歡迎來學台語</div>
+        <h1>台語好好玩</h1>
+        <p class="lead">用趣味的方式親近台語，讓聽、說、讀、寫都變得更自然。</p>
+        <p>本首頁是教學與成果展示的起點，未來可以再加入教材、錄音、活動照片與學生作品。</p>
+        <p class="credit">大社國小 曹月秀</p>
+        <p class="footer">GitHub 頁面首頁</p>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
