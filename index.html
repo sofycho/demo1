@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>台語好好玩</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-1: #07111f;
@@ -25,7 +28,7 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: "Microsoft JhengHei", sans-serif;
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
       color: var(--paper);
       background:
         radial-gradient(circle at top, rgba(125, 183, 255, 0.18), transparent 30%),
@@ -282,6 +285,12 @@
       font-size: clamp(2.4rem, 6vw, 4.6rem);
       line-height: 1.05;
       color: var(--title);
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-shadow:
+        0 2px 0 rgba(0, 0, 0, 0.32),
+        0 10px 24px rgba(255, 209, 102, 0.16);
     }
 
     p {
