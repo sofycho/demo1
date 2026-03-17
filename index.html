@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>台語好好玩</title>
+  <style>
+    :root {
+      --sky: #dff4ff;
+      --blue: #1f5f8b;
+      --teal: #2a9d8f;
+      --gold: #f4a261;
+      --cream: #fffaf0;
+      --text: #16324f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Microsoft JhengHei", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), transparent 36%),
+        linear-gradient(135deg, var(--sky), #ffffff 45%, #fef3c7);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: min(760px, 100%);
+      background: rgba(255, 250, 240, 0.92);
+      border: 3px solid rgba(31, 95, 139, 0.18);
+      border-radius: 28px;
+      padding: 48px 32px;
+      text-align: center;
+      box-shadow: 0 22px 60px rgba(31, 95, 139, 0.16);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--teal);
+      color: #fff;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      margin: 20px 0 12px;
+      font-size: clamp(2.2rem, 6vw, 4.2rem);
+      color: var(--blue);
+    }
+
+    p {
+      margin: 10px 0;
+      font-size: 1.15rem;
+      line-height: 1.8;
+    }
+
+    .credit {
+      margin-top: 24px;
+      font-weight: 700;
+      color: #7c3f00;
+    }
+
+    .footer {
+      margin-top: 28px;
+      font-size: 0.98rem;
+      color: #4b5563;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="tag">歡迎來學台語</div>
+    <h1>台語好好玩</h1>
+    <p>用趣味的方式親近台語，讓聽、講、讀、寫都變得更自然。</p>
+    <p>這個首頁將作為教學與成果展示的起點，未來可以再加入教材、錄音、活動照片與學生作品。</p>
+    <p class="credit">大社國小 曹月秀</p>
+    <p class="footer">GitHub Pages 首頁</p>
+  </main>
+</body>
+</html>
